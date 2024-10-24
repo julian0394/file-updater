@@ -1,5 +1,4 @@
 import { PropsWithChildren } from 'react'
-import { IconType } from 'react-icons'
 
 interface Props extends PropsWithChildren {
   onClick: () => void
@@ -8,7 +7,12 @@ interface Props extends PropsWithChildren {
 
 const Button = ({ children, onClick, id }: Props) => {
   return (
-    <button onClick={onClick} id={id} data-testid={`text-${id}`}>
+    <button
+      onClick={onClick}
+      id={id}
+      data-testid={`text-${id}`}
+      className='p-2 rounded-md hover:bg-slate-600 active:bg-slate-500/70 transition-colors duration-150'
+    >
       {children}
     </button>
   )

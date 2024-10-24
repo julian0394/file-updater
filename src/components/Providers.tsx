@@ -8,7 +8,9 @@ const Providers = ({ children }: Props) => {
 
   return (
     <StrictMode>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        {children}
+      </QueryClientProvider>
     </StrictMode>
   )
 }
