@@ -7,13 +7,12 @@ import { themeAtom } from '../../store/atoms'
 import { useAtom } from 'jotai'
 import { useState } from 'react'
 import InfoModal from '../InfoModal'
-import * as Dialog from '@radix-ui/react-dialog' 
-
+import { MdCloudUpload } from 'react-icons/md'
 
 interface Props {}
 
 const Header = ({}: Props) => {
-  const [theme, setTheme] = useAtom(themeAtom)
+  const [darkTheme, setDarkTheme] = useAtom(themeAtom)
   const [openModal, setOpenModal] = useState(false)
 
   const handleInfoClick = () => {
@@ -23,17 +22,21 @@ const Header = ({}: Props) => {
     alert('contact')
   }
   const handleThemeClick = () => {
-    setTheme( theme === 'dark' ? 'light' : 'dark')
+    setDarkTheme( !darkTheme )
+    document.body.classList.toggle("dark")
   }
 
   return (
-    <header className='h-12 w-full bg-slate-700'>
+    <header className='h-12 w-full border-b border-b-slate-400/20 dark:border-b-slate-900/70 bg-slate-300 dark:bg-slate-700 text-slate-800 dark:text-slate-100'>
       <div className='mx-auto flex h-full max-w-5xl items-center justify-between'>
-        <span className='select-none cursor-default'>FileUp</span>
-        <section className='flex gap-2'>
+        <span className='flex items-center gap-1 select-none cursor-default font-bold text-lg'>
+          <MdCloudUpload className='text-2xl' />
+          FileUp
+        </span>
+        <section className='flex gap-2 text-xl'>
           <Button onClick={handleInfoClick} id='btn-Header-infoButton'>{<IoIosInformationCircleOutline />}</Button>
           <Button onClick={handleContactClick} id='btn-Header-contactButton'>{<IoMailOutline />}</Button>
-          <Button onClick={handleThemeClick} id='btn-Header-themeButton'>{theme === 'light' ? <PiMoonLight /> : <GrSun />}</Button>
+          <Button onClick={handleThemeClick} id='btn-Header-themeButton'>{darkTheme ? <GrSun /> : <PiMoonLight />}</Button>
         </section>
       </div>
 
