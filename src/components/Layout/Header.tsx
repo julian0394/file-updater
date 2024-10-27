@@ -23,12 +23,12 @@ const Header = ({}: Props) => {
   }
   const handleThemeClick = () => {
     setDarkTheme( !darkTheme )
-    document.body.classList.toggle("dark")
+    document.body.classList.toggle('dark')
   }
 
   return (
     <header className='h-12 w-full border-b border-b-slate-400/20 dark:border-b-slate-900/70 bg-slate-300 dark:bg-slate-700 text-slate-800 dark:text-slate-100'>
-      <div className='mx-auto flex h-full max-w-5xl items-center justify-between'>
+      <div className='mx-auto px-10 flex h-full max-w-7xl items-center justify-between'>
         <span className='flex items-center gap-1 select-none cursor-default font-bold text-lg'>
           <MdCloudUpload className='text-2xl' />
           FileUp

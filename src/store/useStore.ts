@@ -29,7 +29,7 @@ export const fileStore = create<FileStore>( set => ({
       if (isDuplicate) {
         openNotification({
           message: newFiles.length > 1
-            ? "Some duplicated files have been ignored. If others werent't, they were uploaded"
+            ? "Some duplicated files have been ignored. If others weren't, they were uploaded"
             : 'This file has already been uploaded',
           id: 'notification-upload-warning-duplicated',
           status: newFiles.length > 1 ? 'warning' : 'error',
@@ -42,7 +42,7 @@ export const fileStore = create<FileStore>( set => ({
           uploadStatus: 'idle',
           uploadProcess: 0
         }
-        newFilesArray.push(newFile);
+        newFilesArray.push(newFile)
         openNotification({ 
           message: 'The files habe been uploaded successfully',
           status: 'success',

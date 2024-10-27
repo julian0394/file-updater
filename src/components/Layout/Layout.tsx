@@ -1,7 +1,7 @@
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from 'tailwind-merge'
 import Header from './Header'
 import Main from './Main'
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify'
 
 const Layout = () => {
   return (
@@ -10,7 +10,7 @@ const Layout = () => {
       <Main />
 
       <ToastContainer
-        position="bottom-center"
+        position='bottom-center'
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop
@@ -19,7 +19,7 @@ const Layout = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme='light'
         toastClassName={() => (
           twMerge('relative flex p-2 border rounded-md justify-between overflow-hidden cursor-pointer')
         )}

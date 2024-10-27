@@ -1,6 +1,6 @@
 import { twMerge } from 'tailwind-merge'
 import { Slide, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css'
 
 type Status = 'success' | 'error' | 'info' | 'warning'
 
