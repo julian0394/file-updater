@@ -1,19 +1,15 @@
 import { useDropzone } from 'react-dropzone'
 import { MdCloudUpload } from 'react-icons/md'
 import { fileStore } from '../../store/useStore'
-import { dropzoneDragAtom } from '../../store/atoms'
-import { useAtom } from 'jotai'
 import DragDropdown from '../DragDropdown'
 import { twMerge } from 'tailwind-merge'
 
 interface Props {}
 
 const FileUploader = ({}: Props) => {
-  const [_, setEnterDropzone] = useAtom(dropzoneDragAtom)
   const { addFiles } = fileStore()
   const handleDropItem = (acceptedFiles: File[]) => {
     addFiles(acceptedFiles)
-    setEnterDropzone(false)
   }
 
   const { getRootProps: getDropzoneProps, getInputProps, fileRejections, isDragActive } = useDropzone({
@@ -25,12 +21,6 @@ const FileUploader = ({}: Props) => {
     // maxSize: 100_000_000, // bytes = 100 mb
     maxSize: 500_000, // bytes = 5 mb
     onDrop: handleDropItem,
-    onDragEnter: () => {
-      setEnterDropzone(true)
-    },
-    onDragLeave: () => {
-      setEnterDropzone(false)
-    },
     // onDropRejected: (fileRejections) => {
     //   console.log(fileRejections)
     //   const setErrorMessage = (): string => {
