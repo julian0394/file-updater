@@ -5,7 +5,7 @@ interface Props extends PropsWithChildren {
   id: string
 }
 
-const Button = ({ children, onClick, id }: Props) => {
+const HeaderButton = ({ children, onClick, id }: Props) => {
   return (
     <button
       onClick={onClick}
@@ -18,4 +18,4 @@ const Button = ({ children, onClick, id }: Props) => {
   )
 }
 
-export default Button
+export default HeaderButton
