@@ -1,7 +1,7 @@
 import { useDropzone } from 'react-dropzone'
 import { MdCloudUpload } from 'react-icons/md'
 import { fileStore } from '../../store/useStore'
-import DragDropdown from '../DragDropdown'
+import DragOverlay from '../DragOverlay'
 import { twMerge } from 'tailwind-merge'
 
 interface Props {}
@@ -12,7 +12,7 @@ const FileUploader = ({}: Props) => {
     addFiles(acceptedFiles)
   }
 
-  const { getRootProps: getDropzoneProps, getInputProps, fileRejections, isDragActive } = useDropzone({
+  const { getRootProps: getDropzoneProps, getInputProps, isDragActive } = useDropzone({
     accept: {
       'image/png': ['.png'],
       'image/jpeg': ['.jpg', '.jpeg'],
@@ -45,7 +45,7 @@ const FileUploader = ({}: Props) => {
     <>
       <section className='mx-auto my-10 w-[80%] flex content-center items-center'>
         <button
-          className='flex min-h-60 w-full border-spacing-2 select-none flex-col items-center justify-center gap-6 rounded-xl border-2 border-slate-500/40 bg-slate-100 dark:bg-slate-700/30 text-slate-800 dark:text-slate-100 outline-none transition-colors duration-150 hover:border-slate-500/70 focus:border-slate-500 active:border-slate-500 z-50'
+          className='flex min-h-60 w-full border-spacing-2 select-none flex-col items-center justify-center gap-6 rounded-xl border-2 border-slate-500/40 bg-slate-100 dark:bg-slate-700/30 text-slate-800 dark:text-slate-100 outline-none transition-colors duration-150 hover:border-slate-500/70 focus:border-slate-500 active:border-slate-500 z-30'
           {...getDropzoneProps()}
           aria-label='Drop zone'
         >
@@ -54,7 +54,7 @@ const FileUploader = ({}: Props) => {
           <div className='flex flex-col gap-1'>
             { isDragActive
               ?
-              <div>Drop here!</div>
+              <div className='text-xl'>Yes! Drop it here!</div>
               :
               <>
                 <span>
@@ -66,7 +66,8 @@ const FileUploader = ({}: Props) => {
           </div>
         </button>
       </section>
-      <DragDropdown open={isDragActive} />
+
+      <DragOverlay open={isDragActive} />
     </>
   )
 }
