@@ -1,6 +1,5 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { Dispatch, SetStateAction } from 'react'
-import HeaderButton from './HeaderButton'
 import Button from './Button'
 
 interface Props {
@@ -17,9 +16,9 @@ const InfoModal = ({ isOpen, setIsOpen }: Props) => {
           <h1>hola</h1>
           <Button
             id='btn-InfoModal-closeButton'
-            // className='rounded-md bg-slate-600 px-2 py-1'
-            onClick={() => setIsOpen(false)}>
-            cerrar
+            onClick={() => setIsOpen(false)}
+          >
+            Cerrar
           </Button>
         </Dialog.Content>
       </Dialog.Portal>

@@ -9,9 +9,7 @@ import { useState } from 'react'
 import InfoModal from '../InfoModal'
 import { MdCloudUpload } from 'react-icons/md'
 
-interface Props {}
-
-const Header = ({}: Props) => {
+const Header = () => {
   const [darkTheme, setDarkTheme] = useAtom(themeAtom)
   const [openModal, setOpenModal] = useState(false)
 
@@ -30,7 +28,7 @@ const Header = ({}: Props) => {
     <header className='h-12 w-full border-b border-b-slate-400/20 dark:border-b-slate-900/70 bg-slate-300 dark:bg-slate-700 text-slate-800 dark:text-slate-100'>
       <div className='mx-auto px-10 flex h-full max-w-7xl items-center justify-between'>
         <span className='flex items-center gap-1 select-none cursor-default font-bold text-lg'>
-          <MdCloudUpload className='text-2xl' />
+          <MdCloudUpload className='text-2xl text-blue-500' />
           FileUp
         </span>
         <section className='flex gap-2 text-xl'>
